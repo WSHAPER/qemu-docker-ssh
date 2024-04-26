@@ -1,7 +1,7 @@
 ### Requirements (Choco)
 
 ```
-docker docker-compose putty
+choco install docker docker-compose putty
 ```
 
 ### Prepare Windows
