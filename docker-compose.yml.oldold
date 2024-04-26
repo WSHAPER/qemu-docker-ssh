@@ -1,0 +1,19 @@
+version: "3.8"
+services:
+  qemu:
+    container_name: qemu
+    image: qemux/qemu-docker
+    #network_mode: host
+    environment:
+      BOOT: "debian-12.5.0-amd64-netinst.iso"
+      RAM_SIZE: "16G"
+      CPU_CORES: "7"
+      DISK_SIZE: "32G"
+      #ARGUMENTS: "-netdev user,id=net0,hostfwd=tcp::2222-:22 -device e1000,netdev=net0"
+    devices:
+      - /dev/kvm
+    cap_add:
+      - NET_ADMIN
+    volumes:
+      - ~/github/qemu-docker/storage:/storage
+    restart: on-failure
