@@ -1,0 +1,34 @@
+# version: "3.8"
+services:
+  qemu:
+    container_name: qemu
+    image: qemux/qemu-docker
+    # network_mode: host
+    # build: .
+    environment:
+      HOST_PORTS: "22"
+      # BOOT: "/storage"
+      # Keep this option, default BOOT_INDEX setting for cd-rom is 10
+      # Therefore it will always prefer booting from storage
+      BOOT: "debian-12.5.0-amd64-netinst.iso"
+      RAM_SIZE: "16G"
+      CPU_CORES: "7"
+      DISK_SIZE: "32G"
+      # That doesn't work:
+      # ARGUMENTS: "-device virtio-gpu-pci,xres=1920,yres=1080"
+      # Enable SSH port forwarding on QEMU
+      #ARGUMENTS: "-netdev user,id=net0,hostfwd=tcp::2222-:22 -device e1000,netdev=net0"
+      #ARGUMENTS: "-net user,hostfwd=tcp::2222-:22 -net nic"
+    devices:
+      - /dev/kvm
+    cap_add:
+      - NET_ADMIN
+    ports:
+      - "8006:8006"
+      - "2222:22"
+    volumes:
+      # Use local file (skip download):
+      # - ~/github/qemu-docker/storage/example.iso:/storage/boot.iso
+      - ~/github/qemu-docker/storage:/storage
+    stop_grace_period: 2m
+    restart: on-failure

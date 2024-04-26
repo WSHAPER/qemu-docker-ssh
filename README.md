@@ -1,8 +1,13 @@
 Create `storage` directory and follow instructions.
-Make sure that check directory paths match with your local system.
+Make sure that check directory paths match in `first-setup.yml` and `docker-compose.yml` with your local system.
+
+### Start first setup:
+```bash
+docker-compose -f first-setup.yml up -d
+```
 
 
-Run the following `docker-compose.yml` with the following command:
+After Debian Installation, run the following `docker-compose.yml` with the following command:
 ```bash
 docker-compose up -d
 ```
