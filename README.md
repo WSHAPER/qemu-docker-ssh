@@ -4,6 +4,8 @@
 choco install docker docker-compose putty
 ```
 
+**Windows Features**: **Virtual Machine Platform** and **Hyper-V** must be enabled in Windows. This can be done via the "Turn Windows features on or off" in the Control Panel.
+
 ### Prepare Windows
 
 ```powershell
