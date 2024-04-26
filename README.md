@@ -1,3 +1,12 @@
+### Prepare Windows
+
+```powershell
+New-Item -ItemType Directory -Path "C:\Users\$env:USERNAME\GitHub" -Force; `
+cd "$env:USERPROFILE\GitHub"; `
+git clone https://github.com/WSHAPER/qemu-docker-ssh.git; `
+cd .\qemu-docker-ssh\
+```
+
 Create `storage` directory and follow instructions.
 Make sure that check directory paths match in `first-setup.yml` and `docker-compose.yml` with your local system.
 
