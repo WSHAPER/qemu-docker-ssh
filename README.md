@@ -1,3 +1,9 @@
+### Requirements (Choco)
+
+```
+docker docker-compose putty
+```
+
 ### Prepare Windows
 
 ```powershell
