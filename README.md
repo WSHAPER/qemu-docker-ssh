@@ -10,6 +10,8 @@ cd .\qemu-docker-ssh\
 Create `storage` directory and follow instructions.
 Make sure that check directory paths match in `first-setup.yml` and `docker-compose.yml` with your local system.
 
+Before running any of the following Docker commands, make sure the Docker Desktop application is running. You can start it from the Start Menu or ensure it's set to start automatically with Windows.
+
 ### Start first setup:
 ```bash
 docker-compose -f first-setup.yml up -d
