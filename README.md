@@ -17,6 +17,11 @@ After Installation, run the following command:
 docker-compose up -d
 ```
 
+Check `ssh` status by running:
+```bash
+systemctl status sshd
+```
+
 ### Test Networking Internally
 
 ```bash
@@ -61,27 +66,7 @@ grep -E 'PasswordAuthentication|PermitRootLogin' /etc/ssh/sshd_config
 > sudo nano /etc/ssh/sshd_config
 > ```
 
-```bash
-# Enable Password Authentication by uncommenting and setting it to 'yes'
-sed -i '/^#PasswordAuthentication yes/s/^#//g' /etc/ssh/sshd_config && \
-sed -i 's/^PasswordAuthentication .*/PasswordAuthentication yes/' /etc/ssh/sshd_config && \
-# ow Root Login with password by uncommenting any PermitRootLogin and setting it to 'yes'
-sed -i 's/^#PermitRootLogin .*/PermitRootLogin yes/' /etc/ssh/sshd_config && \
-sed -i 's/^PermitRootLogin .*/PermitRootLogin yes/' /etc/ssh/sshd_config && \
-
-# Restart SSH service to apply changes
-service ssh restart && \
-
-# Display the current settings for PasswordAuthentication and PermitRootLogin
-grep -E 'PasswordAuthentication|PermitRootLogin' /etc/ssh/sshd_config && \
-
-# Verification of SSH Daemon
-which sshd && \
-# Checking and Managing SSH Service
-service ssh status && \
-# Check if ports are listening on the system, particularly looking for port 22.
-ss -tuln | grep 22
-```
+The SSH Configuration should be handled by `.src/setup-ssh.sh`, which is sourced in the Dockerfile.
 
 **Change Root Password for the QEMU virtual machine inside the Docker container:**
 
