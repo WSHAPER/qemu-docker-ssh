@@ -1,39 +1,20 @@
 ### Start first setup:
+
+- Create `storage/` directory in root directory
+- Move your `debian.iso` into it
+
 ```bash
 docker-compose -f first-setup.yml up -d
 ```
 
+Log in to `localhost:8006` via Browser.
 
-After Debian Installation, run the following `docker-compose.yml` with the following command:
+After Debian Installation, run the following command:
 ```bash
 docker-compose up -d
 ```
 
-```yml
-# version: "3.8"
-services:
-  qemu:
-    container_name: qemu
-    image: qemux/qemu-docker
-    environment:
-      HOST_PORTS: "22"
-      BOOT: "debian-12.5.0-amd64-netinst.iso"
-      RAM_SIZE: "16G"
-      CPU_CORES: "7"
-      DISK_SIZE: "32G"
-    devices:
-      - /dev/kvm
-    cap_add:
-      - NET_ADMIN
-    ports:
-      - "8006:8006"
-      - "2222:22"
-      - "2223:22"
-    volumes:
-      - ~/github/qemu-docker/storage:/storage
-    stop_grace_period: 2m
-    restart: on-failure
-```
+
 
 ### Test Networking Internally
 
