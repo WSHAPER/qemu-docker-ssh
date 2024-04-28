@@ -22,7 +22,8 @@ RUN apt-get update && \
         netcat-openbsd \
         qemu-system-x86 \
         openssh-client \
-        openssh-server && \
+        openssh-server \
+        nano && \
     apt-get clean && \
     novnc="1.4.0" && \
     mkdir -p /usr/share/novnc && \

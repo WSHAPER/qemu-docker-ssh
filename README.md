@@ -59,14 +59,11 @@ Review SSH Configuration:
 grep -E 'PasswordAuthentication|PermitRootLogin' /etc/ssh/sshd_config
 ```
 
-> [!info]- Editing SSH Configuration in Nano
-> First, install `nano` if it's not already installed, and then edit the SSH daemon configuration file.
-> ```bash
-> sudo apt install -y nano
-> sudo nano /etc/ssh/sshd_config
-> ```
-
 The SSH Configuration should be handled by `.src/setup-ssh.sh`, which is sourced in the Dockerfile.
+
+```bash
+sudo nano /etc/ssh/sshd_config
+```
 
 **Change Root Password for the QEMU virtual machine inside the Docker container:**
 
