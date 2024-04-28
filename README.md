@@ -3,18 +3,19 @@
 - Create `storage/` directory in root directory
 - Move your `debian.iso` into it
 
+For initial setup run:
+
 ```bash
 docker-compose -f first-setup.yml up -d
 ```
 
-Log in to `localhost:8006` via Browser.
+Log in to `localhost:8006` via Browser and setup your server using the GUI.
 
-After Debian Installation, run the following command:
+
+After Installation, run the following command:
 ```bash
 docker-compose up -d
 ```
-
-
 
 ### Test Networking Internally
 
